@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DV1-xI-47q">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Planet Table View Controller-->
@@ -36,6 +37,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JNJ-9Z-qEn" kind="show" identifier="toPlanetDetail" id="alb-ab-vja"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,6 +52,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97a-RL-egM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1186" y="351"/>
+        </scene>
+        <!--Planet Detail View Controller-->
+        <scene sceneID="BdJ-vv-SXz">
+            <objects>
+                <viewController id="JNJ-9Z-qEn" customClass="PlanetDetailViewController" customModule="SolarSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7sI-Da-Y4i"/>
+                        <viewControllerLayoutGuide type="bottom" id="FuN-gf-IWF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eVG-4s-BSE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHv-td-SRB">
+                                <rect key="frame" x="180" y="50" width="240" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="SS7-6G-roh"/>
+                                    <constraint firstAttribute="width" constant="240" id="zju-QL-ane"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uvZ-kD-FFj">
+                                <rect key="frame" x="20" y="326" width="560" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BY0-yT-dXX">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="66"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-KN-wtk">
+                                        <rect key="frame" x="187" y="0.0" width="187" height="66"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgD-8c-ivf">
+                                        <rect key="frame" x="374" y="0.0" width="187" height="66"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wHv-td-SRB" firstAttribute="top" secondItem="7sI-Da-Y4i" secondAttribute="bottom" constant="30" id="6A2-hJ-tdE"/>
+                            <constraint firstItem="uvZ-kD-FFj" firstAttribute="top" secondItem="wHv-td-SRB" secondAttribute="bottom" constant="81" id="JAY-R8-JQw"/>
+                            <constraint firstItem="uvZ-kD-FFj" firstAttribute="trailing" secondItem="eVG-4s-BSE" secondAttribute="trailingMargin" id="Ov8-uG-dRu"/>
+                            <constraint firstItem="wHv-td-SRB" firstAttribute="centerX" secondItem="uvZ-kD-FFj" secondAttribute="centerX" id="bYu-EZ-lnB"/>
+                            <constraint firstItem="uvZ-kD-FFj" firstAttribute="leading" secondItem="eVG-4s-BSE" secondAttribute="leadingMargin" id="nd0-K3-6lZ"/>
+                            <constraint firstItem="FuN-gf-IWF" firstAttribute="top" secondItem="uvZ-kD-FFj" secondAttribute="bottom" constant="164" id="uIG-Lh-dKG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="diameterLabel" destination="BY0-yT-dXX" id="DHa-aq-iTd"/>
+                        <outlet property="distanceLabel" destination="qgD-8c-ivf" id="TaE-6s-Flf"/>
+                        <outlet property="imageView" destination="wHv-td-SRB" id="OFE-BW-eHn"/>
+                        <outlet property="lengthOfDayLabel" destination="nhX-KN-wtk" id="p0s-l3-7bv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8X-nD-NhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855" y="351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MW7-hj-g8L">
